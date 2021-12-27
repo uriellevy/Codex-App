@@ -8,7 +8,7 @@ export const PokemonProvider = (props) => {
   const [pokemonInfo, setPokemonInfo] = useState("");
 
   const [loadMore, setLoadMore] = useState(
-    "https://pokeapi.co/api/v2/pokemon?offset=0&limit=20"
+    "https://pokeapi.co/api/v2/pokemon?offset=0&limit=50"
   );
 
   // console.log(colorsType.bug);

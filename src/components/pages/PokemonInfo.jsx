@@ -1,7 +1,9 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import "./PokemonInfo.scss";
 import { PokemonContext } from "../context/PokemonContext";
 import colorsType from "../../colorsType";
+import { ImCross } from "react-icons/im";
+
 const PokemonInfo = () => {
   const [
     allPokemon,
@@ -13,11 +15,17 @@ const PokemonInfo = () => {
     pokemonInfo,
     setPokemonInfo,
   ] = useContext(PokemonContext);
+
+  const closeHandler = () => {
+    setPokemonInfo("");
+  };
+
   console.log(pokemonInfo);
   return (
     <>
       <div className="backdrop" />
-      <div className="modal">
+      <div className={pokemonInfo && "modal"}>
+        <ImCross className="cross-icon" onClick={closeHandler} />
         <div
           className="modal-left"
           style={{
@@ -36,7 +44,7 @@ const PokemonInfo = () => {
           </div>
         </div>
         <div className="modal-right">
-          <div className="bio">
+          <div className="info">
             <h3>Info</h3>
             <ul>
               <li>Height: {pokemonInfo.height * 10} [cm]</li>

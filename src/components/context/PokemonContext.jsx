@@ -5,6 +5,7 @@ export const PokemonContext = createContext();
 export const PokemonProvider = (props) => {
   const [allPokemon, setAllPokemon] = useState([]);
   const [searchPokemon, setSearchPokemon] = useState("");
+  const [pokemonInfo, setPokemonInfo] = useState("");
 
   const [loadMore, setLoadMore] = useState(
     "https://pokeapi.co/api/v2/pokemon?offset=0&limit=20"
@@ -48,6 +49,8 @@ export const PokemonProvider = (props) => {
         setLoadMore,
         searchPokemon,
         setSearchPokemon,
+        pokemonInfo,
+        setPokemonInfo,
       ]}
     >
       {props.children}

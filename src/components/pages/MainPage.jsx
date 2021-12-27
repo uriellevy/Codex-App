@@ -1,7 +1,8 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useContext } from "react";
 import "./MainPage.scss";
 import colorsType from "../../colorsType";
 import { PokemonContext } from "../context/PokemonContext";
+import PokemonInfo from "./PokemonInfo";
 
 const MainPage = () => {
   const [
@@ -11,12 +12,16 @@ const MainPage = () => {
     setLoadMore,
     searchPokemon,
     setSearchPokemon,
+    pokemonInfo,
+    setPokemonInfo,
   ] = useContext(PokemonContext);
   // console.log(allPokemon);
-  console.log(searchPokemon);
+  // console.log(searchPokemon);
+  // console.log(pokemonInfo);
 
   return (
     <>
+      {pokemonInfo && <PokemonInfo />}
       <div className="cards-container">
         <ul className="cards">
           {allPokemon
@@ -28,6 +33,7 @@ const MainPage = () => {
                 style={{
                   backgroundColor: colorsType[pokemon.types[0].type.name],
                 }}
+                onClick={() => setPokemonInfo(pokemon)}
               >
                 <h1>#{pokemon.id}</h1>
                 <img
@@ -37,11 +43,9 @@ const MainPage = () => {
                 <h2>{pokemon.name}</h2>
                 <div className="card-types">
                   {pokemon.types.map((type) => (
-                    <div
-                      className="types"
-                      // style={{ backgroundColor: colorsType[type.type.name] }}
-                    >
-                      {type.type.name}
+                    <div className="types">
+                      <div>{type.type.name}</div>
+                      <img src={type.type.url} />
                     </div>
                   ))}
                 </div>

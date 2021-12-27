@@ -52,8 +52,10 @@
         display: flex;
         .types {
           padding: 10px 15px;
-          margin: 0 auto;
+          margin: 0 10px;
           border-radius: 10px;
+          font-weight: bold;
+          background-color: rgba(255, 255, 255, 0.3);
         }
       }
 

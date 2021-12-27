@@ -4,8 +4,10 @@ export const PokemonContext = createContext();
 
 export const PokemonProvider = (props) => {
   const [allPokemon, setAllPokemon] = useState([]);
+  const [searchPokemon, setSearchPokemon] = useState("");
+
   const [loadMore, setLoadMore] = useState(
-    "https://pokeapi.co/api/v2/pokemon?offset=20&limit=20"
+    "https://pokeapi.co/api/v2/pokemon?offset=0&limit=20"
   );
 
   // console.log(colorsType.bug);
@@ -14,7 +16,7 @@ export const PokemonProvider = (props) => {
     const res = await fetch(loadMore);
     const data = await res.json();
     // console.log(data.results);
-    setLoadMore(data);
+    setLoadMore(data.next);
 
     function createPokemon(result) {
       result.forEach(async (pokemon) => {
@@ -39,7 +41,14 @@ export const PokemonProvider = (props) => {
 
   return (
     <PokemonContext.Provider
-      value={[allPokemon, setAllPokemon, loadMore, setLoadMore]}
+      value={[
+        allPokemon,
+        setAllPokemon,
+        loadMore,
+        setLoadMore,
+        searchPokemon,
+        setSearchPokemon,
+      ]}
     >
       {props.children}
     </PokemonContext.Provider>

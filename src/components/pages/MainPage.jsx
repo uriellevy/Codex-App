@@ -3,6 +3,7 @@ import "./MainPage.scss";
 import colorsType from "../../colorsType";
 import { PokemonContext } from "../context/PokemonContext";
 import PokemonInfo from "./PokemonInfo";
+import { ImInfo } from "react-icons/im";
 
 const MainPage = () => {
   const [
@@ -14,10 +15,20 @@ const MainPage = () => {
     setSearchPokemon,
     pokemonInfo,
     setPokemonInfo,
+    addPokemon,
+    setAddPokemon,
   ] = useContext(PokemonContext);
   // console.log(allPokemon);
   // console.log(searchPokemon);
   // console.log(pokemonInfo);
+  console.log(addPokemon);
+
+  const addHandler = (pokemon) => {
+    if (addPokemon.includes(pokemon)) {
+      setAddPokemon((prev) => [...prev]);
+    } else setAddPokemon((prev) => [...prev, pokemon]);
+    console.log(pokemon);
+  };
 
   return (
     <>
@@ -33,9 +44,13 @@ const MainPage = () => {
                 style={{
                   backgroundColor: colorsType[pokemon.types[0].type.name],
                 }}
-                onClick={() => setPokemonInfo(pokemon)}
               >
                 <h1>#{pokemon.id}</h1>
+                <ImInfo
+                  size="40px"
+                  className="info-icon"
+                  onClick={() => setPokemonInfo(pokemon)}
+                />
                 <img
                   src={pokemon.sprites.other.dream_world.front_default}
                   className="card-img"
@@ -45,11 +60,12 @@ const MainPage = () => {
                   {pokemon.types.map((type) => (
                     <div className="types">
                       <div>{type.type.name}</div>
-                      <img src={type.type.url} />
                     </div>
                   ))}
                 </div>
-                <button className="btn-add">Add to collection</button>
+                <button className="btn-add" onClick={() => addHandler(pokemon)}>
+                  Add to collection
+                </button>
               </li>
             ))}
         </ul>

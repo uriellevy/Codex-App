@@ -6,3 +6,7 @@
   box-sizing: border-box;
   font-family: "Bubblegum Sans", cursive;
 }
+
+body {
+  background-color: #555;
+}

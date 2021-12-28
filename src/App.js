@@ -5,6 +5,7 @@ import { PokemonProvider } from "./components/context/PokemonContext";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Collection from "./components/pages/Collection";
 import Search from "./components/Search";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/" exact component={MainPage} />
           <Route path="/collection" exact component={Collection} />
         </Switch>
+        <Footer></Footer>
       </Router>
     </PokemonProvider>
   );

@@ -10,6 +10,7 @@
     grid-gap: 2rem;
 
     .card {
+      position: relative;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -21,10 +22,33 @@
       overflow: hidden;
       background-color: #333;
       color: rgba(0, 0, 0, 0.877);
-      cursor: pointer;
 
       &:before {
         background: linear-gradient(#e66465, #9198e5);
+      }
+
+      .info-icon {
+        position: absolute;
+        top: 7px;
+        right: 7px;
+        color: rgba(255, 255, 255, 0.507);
+        transition: 0.3s ease;
+        cursor: pointer;
+        &:hover {
+          color: #f4f4f4;
+        }
+      }
+
+      .info-icon-delete {
+        position: absolute;
+        left: 7px;
+        top: 7px;
+        color: rgba(255, 255, 255, 0.507);
+        cursor: pointer;
+        transition: 0.3s ease;
+        &:hover {
+          color: #610202;
+        }
       }
 
       h1 {
@@ -52,7 +76,7 @@
         display: flex;
         .types {
           padding: 10px 15px;
-          margin: 0 10px;
+          margin: 0 10px 7px 10px;
           border-radius: 10px;
           font-weight: bold;
           background-color: rgba(255, 255, 255, 0.3);

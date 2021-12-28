@@ -6,10 +6,20 @@ export const PokemonProvider = (props) => {
   const [allPokemon, setAllPokemon] = useState([]);
   const [searchPokemon, setSearchPokemon] = useState("");
   const [pokemonInfo, setPokemonInfo] = useState("");
+  const [addPokemon, setAddPokemon] = useState(() => {
+    const localData = localStorage.getItem("collection");
+    return localData ? JSON.parse(localData) : [];
+  });
 
   const [loadMore, setLoadMore] = useState(
     "https://pokeapi.co/api/v2/pokemon?offset=0&limit=50"
   );
+
+  // add data to localstorage:
+
+  useEffect(() => {
+    localStorage.setItem("collection", JSON.stringify(addPokemon));
+  }, [addPokemon]);
 
   // console.log(colorsType.bug);
 
@@ -51,6 +61,8 @@ export const PokemonProvider = (props) => {
         setSearchPokemon,
         pokemonInfo,
         setPokemonInfo,
+        addPokemon,
+        setAddPokemon,
       ]}
     >
       {props.children}

@@ -20,7 +20,7 @@ const PokemonInfo = () => {
     setPokemonInfo("");
   };
 
-  console.log(pokemonInfo);
+  // console.log(pokemonInfo);
   return (
     <>
       <div className="backdrop" />

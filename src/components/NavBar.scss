@@ -7,21 +7,34 @@
   max-width: 1700px;
   background-color: #000;
 
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+  }
+
   h1 {
-    padding: 0 20px;
+    padding: 0 5px;
   }
   .nav-menu {
     display: flex;
     padding: 0 20px;
     .nav-item {
-      color: #fff;
-      margin: 0 15px;
       list-style: none;
-      padding: 5px 0;
-      transition: all 0.2s ease;
 
-      &:hover {
-        border-bottom: 2px solid #fff;
+      .nav-link {
+        color: #fff;
+        margin: 0 15px;
+        list-style: none;
+        padding: 5px 0;
+        text-decoration: none;
+        font-size: 25px;
+        padding: 5px;
+      }
+
+      .nav-active {
+        border: 2px #fff solid;
+        border-radius: 10px;
       }
     }
   }

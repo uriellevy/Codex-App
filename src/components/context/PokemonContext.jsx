@@ -6,17 +6,13 @@ export const PokemonProvider = (props) => {
   const [allPokemon, setAllPokemon] = useState([]);
   const [searchPokemon, setSearchPokemon] = useState("");
   const [pokemonInfo, setPokemonInfo] = useState("");
+  const [fetchNumber, setFetchNumber] = useState(3);
   const [addPokemon, setAddPokemon] = useState(() => {
     const localData = localStorage.getItem("collection");
     return localData ? JSON.parse(localData) : [];
   });
 
-  const [loadMore, setLoadMore] = useState(
-    "https://pokeapi.co/api/v2/pokemon?offset=0&limit=50"
-  );
-
   // add data to localstorage:
-
   useEffect(() => {
     localStorage.setItem("collection", JSON.stringify(addPokemon));
   }, [addPokemon]);
@@ -24,10 +20,11 @@ export const PokemonProvider = (props) => {
   // console.log(colorsType.bug);
 
   const getAllPokemons = async () => {
-    const res = await fetch(loadMore);
+    const res = await fetch(
+      `https://pokeapi.co/api/v2/pokemon?offset=0&limit=${fetchNumber}`
+    );
     const data = await res.json();
     // console.log(data.results);
-    setLoadMore(data.next);
 
     function createPokemon(result) {
       result.forEach(async (pokemon) => {
@@ -40,14 +37,16 @@ export const PokemonProvider = (props) => {
       });
     }
     createPokemon(data.results);
+    // console.log(data.results);
   };
 
   // console.log(allPokemon);
 
   useEffect(() => {
     getAllPokemons();
-  }, []);
+  }, [fetchNumber]);
 
+  // console.log(fetchNumber);
   // console.log(cartItems);
 
   return (
@@ -55,14 +54,14 @@ export const PokemonProvider = (props) => {
       value={[
         allPokemon,
         setAllPokemon,
-        loadMore,
-        setLoadMore,
         searchPokemon,
         setSearchPokemon,
         pokemonInfo,
         setPokemonInfo,
         addPokemon,
         setAddPokemon,
+        fetchNumber,
+        setFetchNumber,
       ]}
     >
       {props.children}

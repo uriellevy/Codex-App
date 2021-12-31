@@ -6,8 +6,8 @@ const NavBar = () => {
   return (
     <nav className="nav-container">
       <div className="nav-logo">
-        <MdCatchingPokemon size="35px" />
-        <h1>Codex App</h1>
+        <MdCatchingPokemon size="30px" />
+        <h1>Catch'Em All</h1>
       </div>
 
       <ul className="nav-menu">

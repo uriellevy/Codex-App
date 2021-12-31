@@ -5,7 +5,10 @@
   align-items: center;
   height: 80px;
   max-width: 1700px;
-  background-color: #000;
+  background-color: rgba(0, 0, 0, 0.87);
+  position: sticky;
+  top: 0;
+  z-index: 1;
 
   .nav-logo {
     display: flex;
@@ -35,6 +38,24 @@
       .nav-active {
         border: 2px #fff solid;
         border-radius: 10px;
+      }
+    }
+  }
+}
+
+@media (max-width: 500px) {
+  .nav-container {
+    .nav-logo {
+      padding-left: 7px;
+    }
+    .nav-menu {
+      padding: 0;
+
+      .nav-item {
+        .nav-link {
+          font-size: 17px;
+          margin: 0 5px;
+        }
       }
     }
   }

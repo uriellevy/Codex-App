@@ -1,7 +1,6 @@
 import React from "react";
 import "./Footer.scss";
 import { SiPokemon } from "react-icons/si";
-import { GiPokecog } from "react-icons/gi";
 
 const Footer = () => {
   return (
@@ -13,10 +12,7 @@ const Footer = () => {
       <div className="media">
         <ul>
           <li>
-            <SiPokemon size="70px" />
-          </li>
-          <li>
-            <GiPokecog size="50px" />
+            <SiPokemon size="90px" />
           </li>
         </ul>
       </div>

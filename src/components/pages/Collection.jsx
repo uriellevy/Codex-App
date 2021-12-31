@@ -10,8 +10,6 @@ const Collection = () => {
   const [
     allPokemon,
     setAllPokemon,
-    loadMore,
-    setLoadMore,
     searchPokemon,
     setSearchPokemon,
     pokemonInfo,
@@ -31,10 +29,10 @@ const Collection = () => {
         <ul className="cards">
           {addPokemon
             .filter((pokemon) => pokemon.name.includes(searchPokemon))
-            .map((pokemon) => (
+            .map((pokemon, idx) => (
               <li
                 className="card"
-                key={pokemon.id}
+                key={idx}
                 style={{
                   backgroundColor: colorsType[pokemon.types[0].type.name],
                 }}
@@ -55,10 +53,10 @@ const Collection = () => {
                   src={pokemon.sprites.other.dream_world.front_default}
                   className="card-img"
                 />
-                <h2>{pokemon.name}</h2>
+                <h2>{pokemon.name.toUpperCase()}</h2>
                 <div className="card-types">
-                  {pokemon.types.map((type) => (
-                    <div className="types">
+                  {pokemon.types.map((type, idx) => (
+                    <div className="types" key={idx}>
                       <div>{type.type.name}</div>
                     </div>
                   ))}

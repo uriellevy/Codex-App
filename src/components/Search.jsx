@@ -4,14 +4,8 @@ import "./Search.scss";
 import { PokemonContext } from "./context/PokemonContext";
 
 const Search = () => {
-  const [
-    allPokemon,
-    setAllPokemon,
-    loadMore,
-    setLoadMore,
-    searchPokemon,
-    setSearchPokemon,
-  ] = useContext(PokemonContext);
+  const [allPokemon, setAllPokemon, searchPokemon, setSearchPokemon] =
+    useContext(PokemonContext);
 
   const searchHandler = (e) => {
     setSearchPokemon(e.target.value);

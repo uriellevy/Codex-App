@@ -16,7 +16,7 @@
       justify-content: center;
       align-items: center;
       flex: 1 0 24rem;
-      margin: 1rem;
+      margin: 30px 10px 70px 10px;
       box-shadow: 0.3rem 0.4rem 0.4rem rgba(0, 0, 0, 0.4);
       border-radius: 10px;
       overflow: hidden;
@@ -29,7 +29,7 @@
 
       .info-icon {
         position: absolute;
-        top: 7px;
+        top: 12px;
         right: 7px;
         color: rgba(255, 255, 255, 0.507);
         transition: 0.3s ease;
@@ -42,7 +42,7 @@
       .info-icon-delete {
         position: absolute;
         left: 7px;
-        top: 7px;
+        top: 6px;
         color: rgba(255, 255, 255, 0.507);
         cursor: pointer;
         transition: 0.3s ease;
@@ -99,4 +99,12 @@
       }
     }
   }
+}
+
+.loading-container {
+  height: 100vh;
+  max-width: 2000px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

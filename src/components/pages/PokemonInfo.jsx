@@ -8,8 +8,6 @@ const PokemonInfo = () => {
   const [
     allPokemon,
     setAllPokemon,
-    loadMore,
-    setLoadMore,
     searchPokemon,
     setSearchPokemon,
     pokemonInfo,
@@ -37,7 +35,7 @@ const PokemonInfo = () => {
           <div className="modal-types">
             <h4>
               {pokemonInfo.types.map((type) => (
-                <div>{type.type.name}</div>
+                <div key={type.type.name}>{type.type.name}</div>
               ))}
             </h4>
             <h4></h4>

@@ -6,7 +6,7 @@ export const PokemonProvider = (props) => {
   const [allPokemon, setAllPokemon] = useState([]);
   const [searchPokemon, setSearchPokemon] = useState("");
   const [pokemonInfo, setPokemonInfo] = useState("");
-  const [fetchNumber, setFetchNumber] = useState(3);
+  const [fetchNumber, setFetchNumber] = useState(151);
   const [addPokemon, setAddPokemon] = useState(() => {
     const localData = localStorage.getItem("collection");
     return localData ? JSON.parse(localData) : [];
